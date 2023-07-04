@@ -66,6 +66,8 @@ namespace QuestGame
                 textBox.Foreground = getColorFromHex("#ffffff");
                 textBox.HorizontalAlignment = HorizontalAlignment.Center;
                 textBox.VerticalAlignment = VerticalAlignment.Center;
+                textBox.TextWrapping = TextWrapping.Wrap;
+                textBox.MaxWidth = 400;
 
                 // Измерение размера текста
                 textBox.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
@@ -77,7 +79,7 @@ namespace QuestGame
                 border.VerticalAlignment = VerticalAlignment.Top;
                 border.BorderThickness = new Thickness(2);
 
-                border.Width = 230; // Добавьте отступы или нужные размеры
+                border.Width = 440; // Добавьте отступы или нужные размеры
                 border.Height = textSize.Height + 10; // Добавьте отступы или нужные размеры
                 border.Margin = new Thickness(0, messageIndent, 0, 0);
 
@@ -94,17 +96,7 @@ namespace QuestGame
                 // Добавление кнопки внутри рамки
                 border.Child = textBox;
 
-                if (index < 3)
-                {
-                    border.HorizontalAlignment = HorizontalAlignment.Left;
-                } else
-                {
-                    if (index == 3)
-                    {
-                        buttonIndent = 0;
-                    }
-                    border.HorizontalAlignment = HorizontalAlignment.Right;
-                }
+                border.HorizontalAlignment = HorizontalAlignment.Center;
 
                 border.MouseLeftButtonDown += (sender, e) =>
                 {
@@ -116,18 +108,23 @@ namespace QuestGame
                         healthy += choise.effects.health;
                         happy += choise.effects.happiness;
 
+                        if (healthy < 0 || happy < 0)
+                        {
+                            if (healthy < 0)
+                                healthy = 0;
+                            if (happy < 0)
+                                happy = 0;
+                            GetMessage("Вы не выдерживаете все эти муки и уходите в мир иной!");
+                            window.Main.Children.Remove(window.ChatInputBackground);
+                        } else
+                        {
+                            SetState(data.states[choise.nextState - 1]);
+                        }
                         changeVisualStats();
-                        SetState(data.states[choise.nextState]);
                     }
                     catch (Exception ex)
                     {
-                        GetMessage("Игра закончилась! Начинаем сначала!");
-                        money = 1500;
-                        healthy = 70;
-                        happy = 50;
-
-                        changeVisualStats();
-                        SetState(data.states[0]);
+                        window.Main.Children.Remove(window.ChatInputBackground);
                     }
                 };
 
@@ -159,6 +156,8 @@ namespace QuestGame
             textBox.Foreground = getColorFromHex("#ffffff");
             textBox.HorizontalAlignment = HorizontalAlignment.Center;
             textBox.VerticalAlignment = VerticalAlignment.Center;
+            textBox.TextWrapping = TextWrapping.Wrap;
+            textBox.MaxWidth = 200;
 
             // Добавление TextBox в Border
             border.Child = textBox;
