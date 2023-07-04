@@ -100,13 +100,20 @@ namespace QuestGame
 
                 border.MouseLeftButtonDown += (sender, e) =>
                 {
-                    window.ChatInput.Children.Clear();
                     SendMessage(choise.text);
                     try
                     {
+                        if (money + choise.effects.money < 0)
+                        {
+                            GetMessage("У вас не хватает денег для этого выбора!");
+                            return;
+                        }
+
                         money += choise.effects.money;
                         healthy += choise.effects.health;
                         happy += choise.effects.happiness;
+
+                        window.ChatInput.Children.Clear();
 
                         if (healthy < 0 || happy < 0)
                         {
