@@ -31,7 +31,7 @@ namespace QuestGame
             // Десериализация JSON данных в объекты C#
             data = JsonConvert.DeserializeObject<QuestData>(json);
             money = 1500;
-            healthy = 70;
+            healthy = 50;
             happy = 50;
 
             changeVisualStats();

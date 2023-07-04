@@ -17,15 +17,15 @@
             </Grid>
             <Grid HorizontalAlignment="Center">
                 <Label x:Name="HealthyLabel" Content="Здоровье" TextBlock.FontSize="20" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto"/>
-                <Grid VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
-                    <Grid x:Name="Health" HorizontalAlignment="Left" Background="Red" Width="35" ></Grid>
-                </Grid>
+                <Border CornerRadius ="3" VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
+                    <Border CornerRadius ="3" x:Name="Health" HorizontalAlignment="Left" Background="Red" Width="35" ></Border>
+                </Border>
             </Grid>
             <Grid HorizontalAlignment="Right" Margin="0 0 60 0">
                 <Label x:Name="HappyLabel" Content="Счастье" TextBlock.FontSize="20" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto"/>
-                <Grid VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
-                    <Grid x:Name="Happy" HorizontalAlignment="Left" Background="Yellow" Width="35" ></Grid>
-                </Grid>
+                <Border CornerRadius="3" VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
+                    <Border CornerRadius ="3" x:Name="Happy" HorizontalAlignment="Left" Background="Yellow" Width="35" ></Border>
+                </Border>
             </Grid>
         </Grid>
         <ScrollViewer>
