@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuestGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="500">
+    <Grid Background="#0e1621">
+        <Grid x:Name="TopBar" VerticalAlignment="Top" Height="50" Background="#17212b" Panel.ZIndex="1">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="50" Direction="240" Color="Black" ShadowDepth="2"/>
+            </Grid.Effect>
+            <Grid HorizontalAlignment="Left" Width="89" Margin="60,0,0,0">
+                <Label x:Name="MoneyLabel" Content="Деньги" TextBlock.FontSize="20" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto" HorizontalAlignment="Center"/>
+                <Label x:Name="Money" Content="0" TextBlock.FontSize="15" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center">
+                <Label x:Name="HealthyLabel" Content="Здоровье" TextBlock.FontSize="20" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto"/>
+                <Grid VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
+                    <Grid x:Name="Health" HorizontalAlignment="Left" Background="Red" Width="35" ></Grid>
+                </Grid>
+            </Grid>
+            <Grid HorizontalAlignment="Right" Margin="0 0 60 0">
+                <Label x:Name="HappyLabel" Content="Счастье" TextBlock.FontSize="20" TextBlock.Foreground="#FFFFFF" TextBlock.FontFamily="Roboto"/>
+                <Grid VerticalAlignment="Bottom" Height="10" Margin="0 0 0 5" Background="Gray" HorizontalAlignment="Center" Width="70">
+                    <Grid x:Name="Happy" HorizontalAlignment="Left" Background="Yellow" Width="35" ></Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <ScrollViewer>
+        <Grid x:Name="ChatHistory" Margin="10 60 10 150" Background="#0e1621">
+        </Grid>
+        </ScrollViewer>
+        <Grid x:Name="ChatInputBackground" VerticalAlignment="Bottom" Height="115" Background="#17212b">
+            <Grid x:Name="ChatInput" Margin="10 10 10 10"/>
+        </Grid>
     </Grid>
 </Window>

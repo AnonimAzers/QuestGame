@@ -20,9 +20,11 @@ namespace QuestGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        Game game;
         public MainWindow()
         {
             InitializeComponent();
+            game = new Game(this);
         }
     }
 }

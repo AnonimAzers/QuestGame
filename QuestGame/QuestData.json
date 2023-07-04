@@ -1,0 +1,77 @@
+{
+  "states": [
+    {
+      "id": 1,
+      "text": "Вы находитесь в темном лесу. Что вы делаете?",
+      "choices": [
+        {
+          "text": "Пойти налево",
+          "nextState": 2,
+          "effects": {
+            "money": -10,
+            "health": -5,
+            "happiness": 0
+          }
+        },
+        {
+          "text": "Пойти направо",
+          "nextState": 3,
+          "effects": {
+            "money": 0,
+            "health": -2,
+            "happiness": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Вы нашли сундук с сокровищами!",
+      "choices": [
+        {
+          "text": "Взять все сокровища",
+          "nextState": 4,
+          "effects": {
+            "money": 100,
+            "health": 0,
+            "happiness": 10
+          }
+        },
+        {
+          "text": "Оставить сокровища и продолжить путь",
+          "nextState": 5,
+          "effects": {
+            "money": 0,
+            "health": 0,
+            "happiness": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Вы встретили дружелюбного эльфа.",
+      "choices": [
+        {
+          "text": "Поговорить с эльфом",
+          "nextState": 6,
+          "effects": {
+            "money": 0,
+            "health": 0,
+            "happiness": 5
+          }
+        },
+        {
+          "text": "Продолжить путь, игнорируя эльфа",
+          "nextState": 7,
+          "effects": {
+            "money": 0,
+            "health": 0,
+            "happiness": 0
+          }
+        }
+      ]
+    }
+
+  ]
+}
